@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Main {
+public class FoodLines {
 
     public static int shortest_lines_index(int[] lines, int n) {
         int j;
