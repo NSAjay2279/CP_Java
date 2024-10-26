@@ -1,4 +1,4 @@
-package DMOJ;
+package LEETCODE;
 
 import java.util.*;
 
