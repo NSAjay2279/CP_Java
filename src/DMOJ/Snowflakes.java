@@ -6,9 +6,9 @@ public class Snowflakes {
 
     static final int SIZE = 100000;
 
-    public static class Snowflake_Node {
+    public static class SnowflakeNode {
         int[] snowflake = new int[6];
-        Snowflake_Node next;
+        SnowflakeNode next;
     }
 
     public static int code(int[] snowflake) {
@@ -17,7 +17,8 @@ public class Snowflakes {
     }
 
     public static boolean identicalRight(int[] snow1, int[] snow2, int start) {
-        for (int offset = 0; offset < 6; offset++) {
+        int offset;
+        for (offset = 0; offset < 6; offset++) {
             if (snow1[offset] != snow2[(start + offset) % 6]) {
                 return false;
             }
@@ -26,29 +27,32 @@ public class Snowflakes {
     }
 
     public static boolean identicalLeft(int[] snow1, int[] snow2, int start) {
-        for (int offset = 0; offset < 6; offset++) {
-            int snow2Index = (start - offset + 6) % 6;
-            if (snow1[offset] != snow2[snow2Index]) {
+        int offset, snow2_index;
+        for (offset = 0; offset < 6; offset++) {
+            snow2_index = start - offset;
+            if (snow2_index < 0)
+                snow2_index = snow2_index + 6;
+            if (snow1[offset] != snow2[snow2_index])
                 return false;
-            }
         }
         return true;
     }
 
     public static boolean areIdentical(int[] snow1, int[] snow2) {
         for (int start = 0; start < 6; start++) {
-            if (identicalRight(snow1, snow2, start) || identicalLeft(snow1, snow2, start)) {
+            if (identicalRight(snow1, snow2, start))
                 return true;
-            }
+            if(identicalLeft(snow1, snow2, start))
+                return true;
         }
         return false;
     }
 
-    public static void identifyIdentical(Snowflake_Node[] snowflakes) {
+    public static void identifyIdentical(SnowflakeNode[] snowflakes) {
         for (int i = 0; i < SIZE; i++) {
-            Snowflake_Node node1 = snowflakes[i];
+            SnowflakeNode node1 = snowflakes[i];
             while (node1 != null) {
-                Snowflake_Node node2 = node1.next;
+                SnowflakeNode node2 = node1.next;
                 while (node2 != null) {
                     if (areIdentical(node1.snowflake, node2.snowflake)) {
                         System.out.println("Twin snowflakes found.");
@@ -64,18 +68,17 @@ public class Snowflakes {
 
     public static void main(String[] args) {
         Scanner keyboard = new Scanner(System.in);
-        Snowflake_Node[] snowflakes = new Snowflake_Node[SIZE];
+        SnowflakeNode[] snowflakes = new SnowflakeNode[SIZE];
         int n = keyboard.nextInt();
         for (int i = 0; i < n; i++) {
-            Snowflake_Node snow = new Snowflake_Node();
-            for (int j = 0; j < 6; j++) {
+            SnowflakeNode snow = new SnowflakeNode();
+            for (int j = 0; j < 6; j++)
                 snow.snowflake[j] = keyboard.nextInt();
-            }
             int snowflakeCode = code(snow.snowflake);
             snow.next = snowflakes[snowflakeCode];
             snowflakes[snowflakeCode] = snow;
         }
         identifyIdentical(snowflakes);
-        keyboard.close();
+        return;
     }
 }
