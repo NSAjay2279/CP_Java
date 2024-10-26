@@ -1,3 +1,5 @@
+package DMOJ;
+
 import java.util.Scanner;
 
 public class FoodLines {
