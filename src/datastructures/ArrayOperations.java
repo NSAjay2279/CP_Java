@@ -1,6 +1,7 @@
 package datastructures;
 
 import javax.swing.plaf.synth.SynthOptionPaneUI;
+import java.sql.SQLOutput;
 
 public class ArrayOperations {
     public static final int MAX = 5;
@@ -8,8 +9,11 @@ public class ArrayOperations {
     public static void search(int[] arr, int num) {
         int i;
         for (i = 0; i < MAX; i++)
-            if (arr[i] == num)
+            if (arr[i] == num) {
                 System.out.println("Element " + num + " is at " + (i + 1) + "th position");
+                return;
+            }
+        System.out.println("Element " + num + " is absent");
     }
 
     public static void reverse(int[] arr) {
@@ -50,7 +54,7 @@ public class ArrayOperations {
         reverse(arr);
         System.out.println("After reversing");
         display(arr);
-        search(arr, 0);
+        search(arr, 453);
         search(arr, 11);
     }
 
