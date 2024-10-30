@@ -1,8 +1,5 @@
 package datastructures;
 
-import javax.swing.plaf.synth.SynthOptionPaneUI;
-import java.sql.SQLOutput;
-
 public class ArrayOperations {
     public static final int MAX = 5;
 
