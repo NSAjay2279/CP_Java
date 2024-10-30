@@ -1,4 +1,4 @@
-package DMOJ;
+package dmoj;
 
 import java.util.Scanner;
 
@@ -31,6 +31,5 @@ public class FoodLines {
         for (i = 0; i < n; i++)
             lines[i] = keyboard.nextInt();
         solve(lines, n, m);
-        return;
     }
 }

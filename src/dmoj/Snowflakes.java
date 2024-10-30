@@ -1,6 +1,6 @@
-package DMOJ;
+package dmoj;
 
-import java.util.*;
+import java.util.Scanner;
 
 public class Snowflakes {
 
@@ -79,6 +79,5 @@ public class Snowflakes {
             snowflakes[snowflakeCode] = snow;
         }
         identifyIdentical(snowflakes);
-        return;
     }
 }
