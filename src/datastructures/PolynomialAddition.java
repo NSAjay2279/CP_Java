@@ -57,7 +57,7 @@ public class PolynomialAddition {
         int i;
         for (i = 0; i < p.noOfTerms; i++) {
             if (p.t[i].exp != 0)
-                System.out.print(p.t[i].coEff + "^" + p.t[i].exp);
+                System.out.print(p.t[i].coEff + "x^" + p.t[i].exp + " + ");
             else {
                 System.out.print(p.t[i].coEff);
                 flag = true;
