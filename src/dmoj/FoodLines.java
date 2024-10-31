@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class FoodLines {
 
-    public static int shortest_lines_index(int[] lines, int n) {
+    public static int shortestLinesIndex(int[] lines, int n) {
         int j;
         int shortest = 0;
         for (j = 1; j < n; j++)
@@ -16,7 +16,7 @@ public class FoodLines {
     public static void solve(int[] lines, int n, int m) {
         int i, shortest;
         for (i = 0; i < m; i++) {
-            shortest = shortest_lines_index(lines, n);
+            shortest = shortestLinesIndex(lines, n);
             System.out.println(lines[shortest]);
             lines[shortest]++;
         }

@@ -1,6 +1,7 @@
 package datastructures;
 
 public class ArrayOperations {
+
     public static final int MAX = 5;
 
     public static void search(int[] arr, int num) {
@@ -48,11 +49,18 @@ public class ArrayOperations {
         System.out.println("Elements of Array:");
         display(arr);
         del(arr, 5);
-        reverse(arr);
-        System.out.println("After reversing");
+        del(arr, 2);
+        System.out.println("After deletion:");
         display(arr);
-        search(arr, 453);
-        search(arr, 11);
+        insert(arr, 2, 222);
+        insert(arr, 5, 555);
+        System.out.println("After insertion:");
+        display(arr);
+        reverse(arr);
+        System.out.println("After reversing:");
+        display(arr);
+        search(arr, 222);
+        search(arr, 666);
     }
 
 }
