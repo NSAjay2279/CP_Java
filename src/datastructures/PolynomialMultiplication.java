@@ -47,33 +47,33 @@ public class PolynomialMultiplication {
         int i, j, c;
         Poly p3 = new Poly();
         if (p1.noofterms > p2.noofterms)
-            c = p1.noofterms ;
+            c = p1.noofterms;
         else
-            c = p2.noofterms ;
+            c = p2.noofterms;
 
         for (i = 0, j = 0; i <= c; p3.noofterms++) {
-            if (p1.t[ i ].coeff == 0 && p2.t[ j ].coeff == 0)
-                break ;
-            if (p1.t[ i ].exp >= p2.t[ j ].exp) {
-                if (p1.t[ i ].exp == p2.t[ j ].exp ) {
-                    p3.t[ p3.noofterms ].coeff = p1.t[ i ].coeff + p2.t[ j ].coeff;
-                    p3.t[ p3.noofterms ].exp = p1.t[ i ].exp ;
-                    i++ ;
-                    j++ ;
+            if (p1.t[i].coeff == 0 && p2.t[j].coeff == 0)
+                break;
+            if (p1.t[i].exp >= p2.t[j].exp) {
+                if (p1.t[i].exp == p2.t[j].exp) {
+                    p3.t[p3.noofterms].coeff = p1.t[i].coeff + p2.t[j].coeff;
+                    p3.t[p3.noofterms].exp = p1.t[i].exp;
+                    i++;
+                    j++;
                 }
                 else {
-                    p3.t[ p3.noofterms ].coeff = p1.t[ i ].coeff ;
-                    p3.t[ p3.noofterms ].exp = p1.t[ i ].exp ;
-                    i++ ;
+                    p3.t[p3.noofterms].coeff = p1.t[i].coeff;
+                    p3.t[p3.noofterms].exp = p1.t[i].exp;
+                    i++;
                 }
             }
             else {
-                p3.t[ p3.noofterms ].coeff = p2.t[ j ].coeff ;
-                p3.t[ p3.noofterms ].exp = p2.t[ j ].exp ;
-                j++ ;
+                p3.t[p3.noofterms].coeff = p2.t[j].coeff;
+                p3.t[p3.noofterms].exp = p2.t[j].exp;
+                j++;
             }
         }
-        return p3 ;
+        return p3;
     }
 
     public static Poly polyMul(Poly p1, Poly p2) {
