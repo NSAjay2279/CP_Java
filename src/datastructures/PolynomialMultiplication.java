@@ -83,12 +83,12 @@ public class PolynomialMultiplication {
         p3 = new Poly();
         if (p1.noofterms != 0 && p2.noofterms != 0) {
             int i ;
-            for ( i = 0 ; i < p1.noofterms ; i++ ) {
+            for (i = 0 ; i < p1.noofterms ; i++) {
                 int j;
                 Poly p = new Poly();
                 for (j = 0 ; j < p2.noofterms ; j++) {
-                    coeff = p1.t[ i ].coeff * p2.t[ j ].coeff ;
-                    exp = p1.t[ i ].exp + p2.t[ j ].exp ;
+                    coeff = p1.t[i].coeff * p2.t[j].coeff ;
+                    exp = p1.t[i].exp + p2.t[j].exp ;
                     polyAppend(p, coeff, exp) ;
                 }
                 if (i != 0) {
