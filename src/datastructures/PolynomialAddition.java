@@ -16,11 +16,11 @@ public class PolynomialAddition {
 
     public static class Poly {
         Term[] t = new Term[MAX];
-        int noOfTerms;
+        int noofterms;
 
         Poly() {
             int i;
-            noOfTerms = 0;
+            noofterms = 0;
             for (i = 0; i < MAX; i++) {
                 t[i] = new Term();
                 t[i].coeff = 0;
@@ -53,15 +53,15 @@ public class PolynomialAddition {
     }
 
     public static void polyAppend(Poly p, int c, int e) {
-        p.t[p.noOfTerms].coeff = c;
-        p.t[p.noOfTerms].exp = e;
-        (p.noOfTerms)++;
+        p.t[p.noofterms].coeff = c;
+        p.t[p.noofterms].exp = e;
+        (p.noofterms)++;
     }
 
     public static void display(Poly p) {
         boolean flag = false;
         int i;
-        for (i = 0; i < p.noOfTerms; i++) {
+        for (i = 0; i < p.noofterms; i++) {
             if (p.t[i].exp != 0)
                 System.out.print(p.t[i].coeff + "x^" + p.t[i].exp + " + ");
             else {
@@ -77,27 +77,27 @@ public class PolynomialAddition {
     public static Poly polyAdd(Poly p1, Poly p2) {
         int i, j, c;
         Poly p3 = new Poly();
-        if (p1.noOfTerms > p2.noOfTerms)
-            c = p1.noOfTerms;
+        if (p1.noofterms > p2.noofterms)
+            c = p1.noofterms;
         else
-            c = p2.noOfTerms;
-        for (i = 0, j = 0; i <= c; p3.noOfTerms++) {
+            c = p2.noofterms;
+        for (i = 0, j = 0; i <= c; p3.noofterms++) {
             if (p1.t[i].coeff == 0 && p2.t[j].coeff == 0)
                 break;
             if (p1.t[i].exp >= p2.t[j].exp) {
                 if (p1.t[i].exp == p2.t[j].exp) {
-                    p3.t[p3.noOfTerms].coeff = p1.t[i].coeff + p2.t[j].coeff;
-                    p3.t[p3.noOfTerms].exp = p1.t[i].exp;
+                    p3.t[p3.noofterms].coeff = p1.t[i].coeff + p2.t[j].coeff;
+                    p3.t[p3.noofterms].exp = p1.t[i].exp;
                     i++;
                     j++;
                 } else {
-                    p3.t[p3.noOfTerms].coeff = p1.t[i].coeff;
-                    p3.t[p3.noOfTerms].exp = p1.t[i].exp;
+                    p3.t[p3.noofterms].coeff = p1.t[i].coeff;
+                    p3.t[p3.noofterms].exp = p1.t[i].exp;
                     i++;
                 }
             } else {
-                p3.t[p3.noOfTerms].coeff = p2.t[j].coeff;
-                p3.t[p3.noOfTerms].exp = p2.t[j].exp;
+                p3.t[p3.noofterms].coeff = p2.t[j].coeff;
+                p3.t[p3.noofterms].exp = p2.t[j].exp;
                 j++;
             }
         }
