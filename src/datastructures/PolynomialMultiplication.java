@@ -1,5 +1,10 @@
 package datastructures;
+/* To be corrected .....................................
 
+.........
+....
+
+ */
 public class PolynomialMultiplication {
     static int MAX = 6;
     static int counter = 0;
