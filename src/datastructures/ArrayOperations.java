@@ -43,9 +43,9 @@ public class ArrayOperations {
         int[] arr = new int[]{90, 54, 23, 25, 76};
         insert(arr, 1, 11);
         insert(arr, 2, 12);
-        insert ( arr, 3, 13 ) ;
-        insert ( arr, 4, 14 ) ;
-        insert ( arr, 5, 15 ) ;
+        insert(arr, 3, 13 ) ;
+        insert(arr, 4, 14 ) ;
+        insert(arr, 5, 15 ) ;
         System.out.println("Elements of Array:");
         display(arr);
         del(arr, 5);
