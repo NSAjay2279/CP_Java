@@ -1,11 +1,5 @@
 package datastructures;
 
-/* If optimization required .....................................
-
-.........
-....
-
- */
 public class PolynomialAddition {
     static final int MAX = 10;
 
