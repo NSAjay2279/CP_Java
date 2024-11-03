@@ -11,9 +11,8 @@ public class LinkedList {
         r = q;
         s = new Node();
         while(r.link != null) {
-            if (r.data == num) {
+            if (r.data == num)
                 break;
-            }
             s = r;
             r = r.link;
         }
@@ -25,9 +24,8 @@ public class LinkedList {
                 }
                 s.link = null;
             }
-            else {
+            else
                 System.out.println("Element " + num + " not found");
-            }
             return q;
         }
         s.link = r.link;
@@ -38,7 +36,6 @@ public class LinkedList {
             }
             return q;
         }
-
         else {
             System.out.println("Element " + num + " not found");
             return q;
