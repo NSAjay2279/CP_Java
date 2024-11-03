@@ -34,28 +34,25 @@ public class LinkedList {
     }
 
     public static Node addAfter(Node q, int loc, int num) {
-        Node temp, r;
-        int i;
-        temp = q;
-        for (i = 0; i < loc; i++) {
-            temp = temp.link;
-            if (temp == null) {
-                System.out.println("There are less than " + loc + " elements in list");
-                return q;
-            }
-            temp = temp.link;
-        }
+        Node temp, r, s;
+        temp = new Node();
         r = new Node();
-        r.data = num;
-        r.link = temp.link;
-        temp.link = r;
+        temp.data = num;
+        r = q;
+        for (int i = 1; i <= loc; i++) {
+            if (i == loc) {
+                temp.link = r.link;
+                r.link = temp;
+                break;
+            }
+            r = r.link;
+        }
         return q;
     }
 
     public static Node addAtBeg(Node q, int num) {
         Node temp = new Node();
         temp.data = num;
-        temp.link = null;
         Node r = new Node();
         r = q;
         q = temp;
@@ -67,7 +64,6 @@ public class LinkedList {
         if (q == null) {
             q = new Node();
             q.data = num;
-            q.link = null;
         }
         else {
             Node temp = new Node();
