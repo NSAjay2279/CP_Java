@@ -7,22 +7,42 @@ public class LinkedList {
     }
 
     public static Node del(Node q, int num) {
-        Node old = null, temp = q;
-        while (temp != null) {
-            if (temp.data == num) {
-                if (temp == q)
-                    q = temp.link;
-                else
-                    old.link = temp.link;
-                return q;
+        Node r, temp, s;
+        r = q;
+        s = new Node();
+        while(r.link != null) {
+            if (r.data == num) {
+                break;
+            }
+            s = r;
+            r = r.link;
+        }
+        if (r.link == null) {
+            if (r.data == num) {
+                if (s.link == null) {
+                    q = null;
+                    return q;
+                }
+                s.link = null;
             }
             else {
-                old = temp;
-                temp = temp.link;
+                System.out.println("Element " + num + " not found");
             }
+            return q;
         }
-        System.out.println("Element " + num + " not found");
-        return q;
+        s.link = r.link;
+        if (r.data == num) {
+            if (q == r) {
+                q = r.link;
+                return q;
+            }
+            return q;
+        }
+
+        else {
+            System.out.println("Element " + num + " not found");
+            return q;
+        }
     }
 
     public static void display(Node q) {
@@ -107,6 +127,17 @@ public class LinkedList {
         p = del(p, 99);
         p = del(p, 42);
         p = del(p, 10);
+        p = del(p, 60);
+        p = del(p, 77);
+        display(p);
+        p = del(p, 17);
+        p = del(p, 25);
+        p = del(p, 88);
+        p = del(p, 89);
+        p = del(p, 30);
+        p = del(p, 14);
+        display(p);
+        p = del(p, 41);
         display(p);
         System.out.println("No. of elements in the linked List = " + count(p));
     }
