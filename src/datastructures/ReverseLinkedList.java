@@ -1,6 +1,7 @@
 package datastructures;
 
 public class ReverseLinkedList {
+    public static boolean count = true;
 
     public static class Node {
         int data;
@@ -16,14 +17,28 @@ public class ReverseLinkedList {
     }
 
     public static Node reverse(Node q) {
-        Node r,s,x;
-        int[] list = new int[6];
-        r = q;
-        int i = 0;
-        while(r.link != null) {
-             = r.link;
-            r = r.link;
+        Node r, s, t, w;
+        t = null;
+        s = null;
+        w = q;
+        if (count) {
+            while (w.link != null)
+                w = w.link;
+            count = false;
         }
+        while (q.link != null) {
+            r = null;
+            r = q;
+            while (r.link != null) {
+                s = r;
+                r = r.link;
+            }
+            r.link = s;
+            if (r.data == w.data)
+                t = r;
+            s.link = null;
+        }
+        return t;
     }
 
     public static Node addAtBeg(Node q, int num) {
@@ -44,6 +59,4 @@ public class ReverseLinkedList {
         p = reverse(p);
         display(p);
     }
-
-
 }
