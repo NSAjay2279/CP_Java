@@ -3,36 +3,57 @@ package dmoj;
 import java.util.Scanner;
 
 public class LoginMayhem {
-    private static final int MAX_USERS = 10;
+    private static final int MAX_USERS = 2;
     private static final int MAX_PASSWORD = 10;
     private static final char[][] users = new char[MAX_USERS][MAX_PASSWORD + 1];
 
     public static void main(String[] args) {
-        int num_ops, op, op_type, total, j;
-        Scanner keyboard = new Scanner(System.in);
-        char[] password = new char[MAX_PASSWORD + 1];
-        int num_users = 0;
-        num_ops = keyboard.nextInt();
-        for (op = 0; op < num_ops; op++) {
-            op_type = keyboard.nextInt();
-            password = keyboard.nextLine().trim().toCharArray();
+        Scanner scanner = new Scanner(System.in);
+        char[][] users = new char[MAX_USERS][MAX_PASSWORD + 1];
+        int numOps = scanner.nextInt();
+        int numUsers = 0;
 
-            if (op_type == 1) {
-                int i = 0;
-                int n = password.length;
-                while(i < password.length) {
-                    users[num_users][i] = password[i];
-                    i++;
-                }
-                num_users++;
-            } /* else {
-                total = 0;
-                for (j = 0; j < num_users; j++)
-                    if (users[][j].contains(password[i])
+        for (int op = 0; op < numOps; op++) {
+            int opType = scanner.nextInt();
+            String inputPassword = scanner.next();
+            char[] password = inputPassword.toCharArray();
 
-            } */
-
+            if (opType == 1) {
+                copyArray(users[numUsers], password);
+                numUsers++;
+            } else {
+                int total = 0;
+                for (int j = 0; j < numUsers; j++)
+                    if (containsSubstring(users[j], password)) {
+                        total++;
+                    }
+                System.out.println(total);
+            }
         }
     }
 
+    private static void copyArray(char[] destination, char[] source) {
+        int i = 0;
+        while (i < source.length && i < destination.length - 1) {
+            destination[i] = source[i];
+            i++;
+        }
+        destination[i] = '\0';
+    }
+
+    private static boolean containsSubstring(char[] userPassword, char[] searchPassword) {
+        for (int i = 0; i <= userPassword.length - searchPassword.length; i++) {
+            boolean match = true;
+            for (int j = 0; j < searchPassword.length; j++) {
+                if (userPassword[i + j] != searchPassword[j]) {
+                    match = false;
+                    break;
+                }
+            }
+            if (match) {
+                return true;
+            }
+        }
+        return false;
+    }
 }

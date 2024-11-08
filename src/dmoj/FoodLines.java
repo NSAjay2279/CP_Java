@@ -7,9 +7,11 @@ public class FoodLines {
     public static int shortestLinesIndex(int[] lines, int n) {
         int j;
         int shortest = 0;
-        for (j = 1; j < n; j++)
-            if (lines[j] < lines[shortest])
+        for (j = 1; j < n; j++) {
+            if (lines[j] < lines[shortest]) {
                 shortest = j;
+            }
+        }
         return shortest;
     }
 
@@ -28,8 +30,9 @@ public class FoodLines {
         Scanner keyboard = new Scanner(System.in);
         n = keyboard.nextInt();
         m = keyboard.nextInt();
-        for (i = 0; i < n; i++)
+        for (i = 0; i < n; i++) {
             lines[i] = keyboard.nextInt();
+        }
         solve(lines, n, m);
     }
 }

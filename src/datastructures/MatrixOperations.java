@@ -14,7 +14,7 @@ public class MatrixOperations {
                 m2[i][j] = m1[j][i];
     }
 
-    public static void matMul(int[][] m1, int[][] m2, int[][] m3) {
+    public static void matrixMultiplication(int[][] m1, int[][] m2, int[][] m3) {
         int i,j,k;
         for (k = 0; k < MAX; k++)
             for ( i = 0; i < MAX; i++) {
@@ -40,7 +40,7 @@ public class MatrixOperations {
         }
     }
 
-    public static void create(int[][] mat) {
+    public static void createList(int[][] mat) {
         int i, j;
         for (i = 0; i < MAX; i++)
             for (j = 0; j < MAX; j++) {
@@ -57,9 +57,9 @@ public class MatrixOperations {
         int[][] mat4 = new int[3][3];
         int[][] mat5 = new int[3][3];
         System.out.println("Enter elements for first array:");
-        create(mat1);
+        createList(mat1);
         System.out.println("Enter elements for second array:");
-        create(mat2);
+        createList(mat2);
         System.out.println("First Array:");
         display(mat1);
         System.out.println("Second Array:");
@@ -67,7 +67,7 @@ public class MatrixOperations {
         matAdd(mat1, mat2, mat3) ;
         System.out.println( "After Addition:");
         display(mat3);
-        matMul(mat1, mat2, mat4);
+        matrixMultiplication(mat1, mat2, mat4);
         System.out.println( "After Multiplication:");
         display(mat4);
         transpose(mat1, mat5);

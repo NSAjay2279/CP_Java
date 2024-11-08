@@ -30,20 +30,24 @@ public class Snowflakes {
         int offset, snow2_index;
         for (offset = 0; offset < 6; offset++) {
             snow2_index = start - offset;
-            if (snow2_index < 0)
+            if (snow2_index < 0) {
                 snow2_index = snow2_index + 6;
-            if (snow1[offset] != snow2[snow2_index])
+            }
+            if (snow1[offset] != snow2[snow2_index]) {
                 return false;
+            }
         }
         return true;
     }
 
     public static boolean areIdentical(int[] snow1, int[] snow2) {
         for (int start = 0; start < 6; start++) {
-            if (identicalRight(snow1, snow2, start))
+            if (identicalRight(snow1, snow2, start)) {
                 return true;
-            if(identicalLeft(snow1, snow2, start))
+            }
+            if(identicalLeft(snow1, snow2, start)) {
                 return true;
+            }
         }
         return false;
     }
@@ -72,8 +76,9 @@ public class Snowflakes {
         int n = keyboard.nextInt();
         for (int i = 0; i < n; i++) {
             SnowflakeNode snow = new SnowflakeNode();
-            for (int j = 0; j < 6; j++)
+            for (int j = 0; j < 6; j++) {
                 snow.snowflake[j] = keyboard.nextInt();
+            }
             int snowflakeCode = code(snow.snowflake);
             snow.next = snowflakes[snowflakeCode];
             snowflakes[snowflakeCode] = snow;
