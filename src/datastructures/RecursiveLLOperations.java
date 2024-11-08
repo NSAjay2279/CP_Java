@@ -44,13 +44,17 @@ public class RecursiveLLOperations {
     }
 
     // Adds a node at the end of a linked list
-    Node addNodeAtEnd(Node head, int data) {
-        if (head == null) {
-            return new Node(data);
+    // Adds a node at the end of a linked list
+    void addNodeAtEnd(Node head, int data) {
+        // Base case: if the current node's next is null, it is the last node
+        if (head.next == null) {
+            head.next = new Node(data);
+        } else {
+            // Recursive case: move to the next node
+            addNodeAtEnd(head.next, data);
         }
-        head.next = addNodeAtEnd(head.next, data);
-        return head;
     }
+
 
     public static void main(String[] args) {
         RecursiveLLOperations list = new RecursiveLLOperations();
@@ -82,7 +86,7 @@ public class RecursiveLLOperations {
         System.out.println();
 
         // Add node at the end
-        list.head = list.addNodeAtEnd(list.head, 4);
+        list.addNodeAtEnd(list.head, 4);
         System.out.println("List after adding node: ");
         current = list.head;
         while (current != null) {
