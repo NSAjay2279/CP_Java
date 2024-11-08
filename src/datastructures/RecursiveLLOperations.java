@@ -44,13 +44,10 @@ public class RecursiveLLOperations {
     }
 
     // Adds a node at the end of a linked list
-    // Adds a node at the end of a linked list
     void addNodeAtEnd(Node head, int data) {
-        // Base case: if the current node's next is null, it is the last node
         if (head.next == null) {
             head.next = new Node(data);
         } else {
-            // Recursive case: move to the next node
             addNodeAtEnd(head.next, data);
         }
     }
