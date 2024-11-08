@@ -1,24 +1,24 @@
 package datastructures;
-
+/*
 public class PolynomialAddition {
     static final int MAX = 10;
 
     public static class Term {
-        int coeff;
-        int exp;
+        int coefficient;
+        int exponent;
     }
 
     public static class Poly {
         Term[] t = new Term[MAX];
-        int noofterms;
+        int numberOfTerms;
 
         Poly() {
             int i;
-            noofterms = 0;
+            numberOfTerms = 0;
             for (i = 0; i < MAX; i++) {
                 t[i] = new Term();
-                t[i].coeff = 0;
-                t[i].exp = 0;
+                t[i].coefficient = 0;
+                t[i].exponent = 0;
             }
         }
     }
@@ -98,3 +98,4 @@ public class PolynomialAddition {
         return p3;
     }
 }
+*/

@@ -1,6 +1,6 @@
 package datastructures;
 
-public class LinkedList {
+public class LinkedListOperations {
     public static class Node {
         int data;
         Node link;
@@ -29,17 +29,11 @@ public class LinkedList {
             return q;
         }
         s.link = r.link;
-        if (r.data == num) {
-            if (q == r) {
-                q = r.link;
-                return q;
-            }
+        if (q == r) {
+            q = r.link;
             return q;
         }
-        else {
-            System.out.println("Element " + num + " not found");
-            return q;
-        }
+        return q;
     }
 
     public static void display(Node q) {
