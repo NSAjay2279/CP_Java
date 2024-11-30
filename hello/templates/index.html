@@ -8,7 +8,10 @@
 </head>
 
 <body>
-    hello, {{ placeholder }}
+    <form action="/greet" method="get">
+        <input autocomplete="off" autofocus name="name" placeholder="Name" type="text">
+        <button type="submit">Greet</button>
+    </form>
 </body>
 
 </html>
